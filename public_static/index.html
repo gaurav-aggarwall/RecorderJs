@@ -1,33 +1,54 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="UTF-8">
-    <title>Simple Recorder.js demo with record, stop and pause</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="style.css">
-  </head>
-  <body>
-    <h1>Simple Recorder.js demo</h1>
+
+<head>
+  <meta charset="UTF-8">
+  <title>Recorder</title>
+  <link rel="icon" href="./logo.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+    crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr"
+    crossorigin="anonymous">
+  <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+
+<body>
+  <div class="recording">
+    <h1 class="recording-heading">Start Recording <i class="fas fa-music"></i></h1>
 
     <div id="controls">
-  	 <button id="recordButton">Record</button>
-  	 <button id="pauseButton" disabled>Pause</button>
-     <button id="stopButton" disabled>Stop</button>
-     <button id="sendBtn" disabled>Send</button>
+      <div class="row">
+        <div class="col-md-2"></div>
+        <div class="col-md-2 buttons">
+          <button id="recordButton"><i class="far fa-play-circle"></i> Record</button>
+        </div>
+        <div class="col-md-2 buttons">
+          <button id="pauseButton" disabled><i class="far fa-pause-circle"></i> Pause</button>
+        </div>
+        <div class="col-md-2 buttons">
+          <button id="stopButton" disabled><i class="far fa-stop-circle"></i> Stop</button>
+        </div>
+        <div class="col-md-2 buttons">
+          <a id='saveSound'><button id="sendBtn" disabled> <i class="fas fa-share-square"></i>SEND</button></a>
+        </div>
+        <div class="col-md-12"></div>
+      </div>
     </div>
-    <br/>
-    <div id="formats">Format: start recording to see sample rate</div>
-  	<h3>Recordings</h3>
-  	<ol id="recordingsList"></ol>
 
-    <!-- inserting these scripts at the end to be able to use all the elements in the DOM -->
-    <script src="https://cdn.rawgit.com/mattdiamond/Recorderjs/08e7abd9/dist/recorder.js"></script>
-    <script src="/socket.io/socket.io.js"></script>
-    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+    <div class="recording-list">
+      <h3 class="recording-list-header">Recordings</h3>
+      <ol class="recording-list-content" id ='ol'></ol>
+    </div>
+  </div>
+
+  <!-- inserting these scripts at the end to be able to use all the elements in the DOM -->
+  <script src="https://cdn.rawgit.com/mattdiamond/Recorderjs/08e7abd9/dist/recorder.js"></script>
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
     crossorigin="anonymous">
   </script>
-    <script src="app.js"></script>
-  
-    
-  </body>
+  <script src="app.js"></script>
+
+</body>
+
 </html>
