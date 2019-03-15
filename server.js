@@ -3,6 +3,8 @@ const path=require('path');
 const parser = require('busboy-body-parser');
 const saveFile = require('save-file');
 
+const PORT = process.env.PORT || 5000
+
 // Express App
 const app = express(); 
  
@@ -15,4 +17,4 @@ app.post('/downloadWAV', async (req,res,next) => {
   res.send(JSON.stringify('parsing data'));
 })
 
-app.listen(5000,() => console.log('Server started on http://localhost:5000'));
+app.listen(PORT,() => console.log(`Server started on ${PORT} port.`));
